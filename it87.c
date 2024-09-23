@@ -68,7 +68,8 @@
 #define DRVNAME "it87"
 
 enum chips { it87, it8712, it8716, it8718, it8720, it8721, it8728, it8771,
-	     it8772, it8781, it8782, it8783, it8786, it8790, it8603, it8620 };
+	     it8772, it8781, it8782, it8783,it8786, it8790, it8603, it8620 };
+
 
 static unsigned short force_id;
 module_param(force_id, ushort, 0);
@@ -153,6 +154,7 @@ static inline void superio_exit(int ioreg)
 #define IT8781F_DEVID 0x8781
 #define IT8782F_DEVID 0x8782
 #define IT8783E_DEVID 0x8783
+#define IT8784E_DEVID 0x8784
 #define IT8786E_DEVID 0x8786
 #define IT8790E_DEVID 0x8790
 #define IT8603E_DEVID 0x8603
@@ -2363,6 +2365,7 @@ static int __init it87_find(int sioaddr, unsigned short *address,
 	case IT8783E_DEVID:
 		sio_data->type = it8783;
 		break;
+	case IT8784E_DEVID:
 	case IT8786E_DEVID:
 		sio_data->type = it8786;
 		break;
